@@ -1,38 +1,52 @@
-.App {
+@font-face {
+  font-family: raleway;
+  src: url("https://fonts.google.com/share?selection.family=Raleway:wght@100");
+}
+
+body {
+  font-family: raleway;
+  background-color: white;
+  color: rgb(59, 48, 48);
+}
+
+/* .mapImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.headerTitle {
+  background-color: rgb(36, 66, 25);
+  padding: 30px;
+  color: rgb(194, 202, 239);
+}
+
+.homeDiv {
+  background-image: url("https://images.unsplash.com/photo-1495954380655-01609180eda3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80");
+  background-repeat: no-repeat;
+  /* height: 100%;
+  width: 100%; */
+  display: block;
+  background-position: center;
+  padding: 100px
+}
+
+.welcome {
+  font-size: 250px;
+  color: rgb(255, 255, 255, 0.7);
   text-align: center;
+  margin: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  font-size: 80px;
+  margin-top: 20px;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px #dbd8ce;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.headerDiv {
+  outline: solid;
+  margin-bottom: 40px;
+  background-color: rgba(32, 30, 27, 0.972);
 }
