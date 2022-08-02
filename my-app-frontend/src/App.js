@@ -6,6 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 
 console.log('hi')
+console.log('test')
 
 function App() {
 
