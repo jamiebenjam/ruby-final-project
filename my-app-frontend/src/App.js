@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './Header';
 import Home from './Home';
+import CityItems from './CityItems';
 import { Route, Switch } from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 
@@ -24,6 +25,10 @@ function App() {
 
         <Route exact path="/"/>
           <Home cities={cities} />
+        <Route />
+
+        <Route exact path="/cities"/>
+          <CityItems />
         <Route />
 
       <Switch />
