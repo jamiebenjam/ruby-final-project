@@ -1,6 +1,6 @@
 @font-face {
   font-family: raleway;
-  src: url("https://fonts.google.com/share?selection.family=Raleway:wght@100");
+  src: url(Raleway.ttf);
 }
 
 body {
@@ -8,12 +8,6 @@ body {
   background-color: white;
   color: rgb(59, 48, 48);
 }
-
-/* .mapImg{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-} */
 
 .headerTitle {
   background-color: rgb(36, 66, 25);
