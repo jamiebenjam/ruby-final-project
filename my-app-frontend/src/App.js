@@ -5,6 +5,8 @@ import CityItems from './CityItems';
 import { Route, Switch } from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 
+console.log('hi')
+
 function App() {
 
   const [cities, setCities] = useState([])
