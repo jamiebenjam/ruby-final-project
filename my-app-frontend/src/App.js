@@ -10,6 +10,7 @@ function App() {
   const [cities, setCities] = useState([])
   const [activities, setActivities] = useState([])
 
+  // console.log(cities);
 
   function fetchCities() {
     fetch("http://localhost:9292/cities")

@@ -1,12 +1,8 @@
 import React from 'react';
 
-function Home({activities}) {
-
-
-
+function Home() {
     return(
     <div className="homeDiv">
-        
         <h1 className="welcome">welcome</h1>
     </div>
     )
