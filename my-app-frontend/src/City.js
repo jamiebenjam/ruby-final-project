@@ -23,7 +23,6 @@ function City({cities, activities}) {
         <div className="cityDiv">
             <NewCityForm />
             <ul>{mapCities}</ul>
-            <ul>{mapActivities}</ul>
         </div>
     )
 }
