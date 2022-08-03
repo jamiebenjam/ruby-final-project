@@ -37,13 +37,13 @@ function App() {
           <Home cities={cities} activities={activities} />
         <Route />
 
-        {/* <Route exact path="/cities"/>
+        <Route exact path="/cities"/>
           <CityItems />
         <Route />
 
         <Route exact path="/activities"/>
           <ActivityItems />
-        <Route /> */}
+        <Route />
 
       <Switch />
     </div>
