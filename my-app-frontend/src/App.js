@@ -12,7 +12,7 @@ function App() {
   const [cities, setCities] = useState([])
   const [activities, setActivities] = useState([])
 
-  console.log(cities);
+  // console.log(cities);
 
   function fetchCities() {
     fetch("http://localhost:9292/cities")
@@ -36,8 +36,8 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home activities={activities}/>} />
-        <Route path="/cities" element={<City cities={cities}/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/cities" element={<City cities={cities} activities={activities}/>} />
 
 
         {/* <Route exact path="/activities"/>
