@@ -1,14 +1,18 @@
 import './App.css';
 import Header from './Header';
 import Home from './Home';
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import React, {useState, useEffect} from 'react';
+import City from './City';
+
 
 
 function App() {
 
   const [cities, setCities] = useState([])
   const [activities, setActivities] = useState([])
+
+  console.log(cities);
 
   function fetchCities() {
     fetch("http://localhost:9292/cities")
@@ -31,21 +35,15 @@ function App() {
     <div className="App">
       <Header />
 
-      <Switch />
+      <Routes>
+        <Route path="/" element={<Home activities={activities}/>} />
+        <Route path="/cities" element={<City cities={cities}/>} />
 
-        <Route exact path="/"/>
-          <Home cities={cities} activities={activities} />
-        <Route />
 
-        {/* <Route exact path="/cities"/>
-          <CityItems />
-        <Route />
-
-        <Route exact path="/activities"/>
+        {/* <Route exact path="/activities"/>
           <ActivityItems />
         <Route /> */}
-
-      <Switch />
+      </Routes>
     </div>
   );
 }
