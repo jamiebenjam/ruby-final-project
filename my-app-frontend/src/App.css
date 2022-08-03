@@ -6,7 +6,7 @@
 body {
   font-family: raleway;
   background-color: white;
-  color: rgb(59, 48, 48);
+  color: white;
 }
 
 .headerTitle {
@@ -46,4 +46,8 @@ body {
   outline: solid;
   margin-bottom: 30px;
   background-color: rgba(32, 30, 27, 0.972);
+}
+
+.cityDiv {
+  text-align: center;
 }

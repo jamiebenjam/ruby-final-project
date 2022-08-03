@@ -1,6 +1,7 @@
 import React from "react";
 import CityItems from "./CityItems";
 import NewCityForm from "./NewCityForm";
+import ActivityItems from "./ActivityItems";
 
 function City({cities, activities}) {
     // console.log('activities', activities)
@@ -21,8 +22,8 @@ function City({cities, activities}) {
     return (
         <div className="cityDiv">
             <NewCityForm />
-            <p>City List</p>
             <ul>{mapCities}</ul>
+            <ul>{mapActivities}</ul>
         </div>
     )
 }
