@@ -1,10 +1,9 @@
 import React from "react";
 import CityItems from "./CityItems";
 import NewCityForm from "./NewCityForm";
-import ActivityItems from "./ActivityItems";
 
 function City({cities, activities}) {
-    // console.log('activities', activities)
+
 
     const mapCities = cities.map((city) => {
         return <CityItems
