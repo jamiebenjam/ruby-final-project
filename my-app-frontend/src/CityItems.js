@@ -1,13 +1,10 @@
-function CityItems({name, id}) {
+function CityItems({name}) {
 
-    console.log(name, id);
     return (
         <div>
             <button>
-                <p>City</p>
-                <p>{name}</p>
-                <p>{id}</p>
-                </button>
+                <p>City <br></br>{name}</p>
+            </button>
         </div>
     )
 }
