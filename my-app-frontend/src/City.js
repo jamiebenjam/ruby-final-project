@@ -23,7 +23,7 @@ function City({cities, activities, onAddCity, onAddActivity, setCities, onDelete
 
     return (
         <div className="cityDiv">
-            <NewCityForm onAddCity={onAddCity} setCities={setCities} onAddActivity={onAddActivity} />
+            <NewCityForm cities={cities} onAddCity={onAddCity} setCities={setCities} onAddActivity={onAddActivity} />
             <ul>{mapCities}</ul>
         </div>
     )

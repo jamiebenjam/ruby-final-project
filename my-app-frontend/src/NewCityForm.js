@@ -1,6 +1,11 @@
 import React, {useState} from "react";
 
-function NewCityForm({onAddCity, onAddActivity}) {
+function NewCityForm({onAddCity, onAddActivity, cities}) {
+
+    const citySelector = cities.map((city) => {
+        return <option key={city.id} value={city.id}>{city.name}</option>;
+    })
+    
 
     const [cityForm, setCityForm] = useState({
         name: ""
@@ -98,7 +103,10 @@ function NewCityForm({onAddCity, onAddActivity}) {
                 <input onChange={handleActivityFormChange} type="text" name="restaurant" placeholder="Restaurant name"/>
                 <input onChange={handleActivityFormChange} type="text" name="park" placeholder="Park name"/>
                 <input onChange={handleActivityFormChange} type="text" name="misc" placeholder="Other"/>
-                <input onChange={handleActivityFormChange} type="integer" name="city_id" placeholder="City ID"/>
+                <select onChange={handleActivityFormChange} type="integer" name="city_id" placeholder="City ID">
+                    <option value="">Select One</option>
+                    {citySelector}
+                    </select>
                 <button onClick={handleActivityClick} type="submit">Add Activities</button>
             </form>
         </div>
