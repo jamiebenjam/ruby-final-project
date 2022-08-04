@@ -52,11 +52,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cities" element={<City onDeleteActivity={onDeleteActivity} setCities={setCities} cities={cities} activities={activities} onAddCity={onAddCity} onAddActivity={onAddActivity} onDeleteCity={onDeleteCity} />} />
-
-
-        {/* <Route exact path="/activities"/>
-          <ActivityItems />
-        <Route /> */}
       </Routes>
     </div>
   );

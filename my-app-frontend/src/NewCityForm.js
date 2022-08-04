@@ -22,7 +22,6 @@ function NewCityForm({onAddCity, onAddActivity, cities}) {
 
 
     function handleCityFormChange(e) {
-        console.log(e.target.value);
         setCityForm((prevState) => {
             let key = e.target.name
             return {
@@ -34,7 +33,6 @@ function NewCityForm({onAddCity, onAddActivity, cities}) {
 
     function handleCityClick(e) {
         e.preventDefault()
-        console.log(cityForm)
         const configObj = {
             method: "POST",
             headers: {
@@ -54,7 +52,6 @@ function NewCityForm({onAddCity, onAddActivity, cities}) {
     }
 
     function handleActivityFormChange(e) {
-        console.log(e.target.value);
         setActivityForm((prevState) => {
             let key = e.target.name
             return {
@@ -66,7 +63,6 @@ function NewCityForm({onAddCity, onAddActivity, cities}) {
 
     function handleActivityClick(e) {
         e.preventDefault()
-        console.log(activityForm)
         const configObj = {
             method: "POST",
             headers: {
