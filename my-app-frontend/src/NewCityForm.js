@@ -98,7 +98,7 @@ function NewCityForm({onAddCity, onAddActivity}) {
                 <input onChange={handleActivityFormChange} type="text" name="restaurant" placeholder="Restaurant name"/>
                 <input onChange={handleActivityFormChange} type="text" name="park" placeholder="Park name"/>
                 <input onChange={handleActivityFormChange} type="text" name="misc" placeholder="Other"/>
-                <input onChange={handleActivityFormChange} type="integer" name="city_id" placeholder="City"/>
+                <input onChange={handleActivityFormChange} type="integer" name="city_id" placeholder="City ID"/>
                 <button onClick={handleActivityClick} type="submit">Add Activities</button>
             </form>
         </div>

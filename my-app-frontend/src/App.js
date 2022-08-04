@@ -34,6 +34,16 @@ function App() {
 
   useEffect(fetchActivities, []);
 
+  function onDeleteCity(deletedCity) {
+    const updatedCities = cities.filter((city) => city.id !== deletedCity.id);
+    setCities(updatedCities);
+  }
+
+  function onDeleteActivity(deletedActivity) {
+    const updatedActivities = activities.filter((activity) => activity.id !== deletedActivity.id);
+    setActivities(updatedActivities);
+  }
+
 
   return (
     <div className="App">
@@ -41,7 +51,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cities" element={<City setCities={setCities} cities={cities} activities={activities} onAddCity={onAddCity} onAddActivity={onAddActivity} />} />
+        <Route path="/cities" element={<City onDeleteActivity={onDeleteActivity} setCities={setCities} cities={cities} activities={activities} onAddCity={onAddCity} onAddActivity={onAddActivity} onDeleteCity={onDeleteCity} />} />
 
 
         {/* <Route exact path="/activities"/>

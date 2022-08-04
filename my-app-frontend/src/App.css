@@ -55,6 +55,10 @@ body {
 
 .cityDiv {
   text-align: center;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .navDiv {
@@ -84,4 +88,12 @@ body {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.wrapper {
+  color: black;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+  gap: 2rem;
+  justify-content: center; */
 }
