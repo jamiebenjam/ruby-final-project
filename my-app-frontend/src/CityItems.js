@@ -40,7 +40,7 @@ function handleEditActivity(){
             <button>
                 <p>Activities</p>
                 <ul >{mapActivities}</ul>
-                <button onClick={handleEditActivity}>Edit </button>
+                <button onClick={handleEditActivity}>Archive</button>
             </button>
         </div>
     )

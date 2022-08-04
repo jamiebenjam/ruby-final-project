@@ -6,7 +6,7 @@ function Header() {
         <div className="headerDiv">
             <h1 className="header">Do Travel.</h1>
             <div className="navDiv">
-                <NavLink to="/" >Home</NavLink>  |  <NavLink to="/cities">Cities</NavLink>
+                <NavLink to="/" >Home</NavLink>  |  <NavLink to="/trips">Trips</NavLink>  |  <NavLink to="/archive">Past Trips</NavLink> 
             </div>
             <br></br>
             <br></br>
