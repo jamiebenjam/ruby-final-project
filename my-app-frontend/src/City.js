@@ -2,7 +2,7 @@ import React from "react";
 import CityItems from "./CityItems";
 import NewCityForm from "./NewCityForm";
 
-function City({cities, activities}) {
+function City({cities, activities, onAddCity}) {
 
 
     const mapCities = cities.map((city) => {
@@ -20,7 +20,7 @@ function City({cities, activities}) {
 
     return (
         <div className="cityDiv">
-            <NewCityForm />
+            <NewCityForm onAddCity={onAddCity} />
             <ul>{mapCities}</ul>
         </div>
     )

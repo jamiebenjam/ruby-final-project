@@ -1,14 +1,16 @@
 import React, {useState} from "react";
 
-function NewCityForm() {
+function NewCityForm({onAddCity}) {
 
-    const [form, setForm] = useState({})
+    const [cityForm, setCityForm] = useState({
+        name: ""
+    })
 
 
 
     function handleFormChange(e) {
         console.log(e.target.value);
-        setForm((prevState) => {
+        setCityForm((prevState) => {
             let key = e.target.value.name
             return {
                 ...prevState,
@@ -17,13 +19,34 @@ function NewCityForm() {
         })
     }
 
+    function handleCityClick(e) {
+        e.preventDefault()
+        const configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",    
+            },
+            body: JSON.stringify({...cityForm}),
+        };
+
+        fetch("http://localhost:9292/cities", configObj)
+        .then(res => res.json())
+        .then(data => {
+            onAddCity(data);
+            setCityForm({
+                name: ""
+            })
+        })
+    }
+
 
     return (
         <div>
             <h2>City</h2>
             <form>
-                <input type="text" name="name" placeholder="City name"/>
-                <button type="submit">Add City</button>
+                <input onChange={handleFormChange} type="text" name="name" placeholder="City name"/>
+                <button onClick={handleCityClick} type="submit">Add City</button>
             </form>
             <h2>Activities</h2>
             <form>
