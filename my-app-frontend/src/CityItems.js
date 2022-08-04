@@ -1,7 +1,8 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import ActivityItems from './ActivityItems';
 
-function CityItems({name, activities}) {
+function CityItems({name, activities, onDeleteCity, city, onDeleteActivity}) {
 
 
 const mapActivities = activities.map((activity) => {
@@ -12,14 +13,45 @@ const mapActivities = activities.map((activity) => {
     restaurant={activity.restaurant}
     park={activity.park}
     misc={activity.misc}
+    activity={activity}
     />
 })
+
+function handleDeleteCity() {
+    console.log("deleted city")
+    fetch(`http://localhost:9292/cities/${city.id}`, {
+        method: 'DELETE',
+    })
+    .then(res => res.json())
+    .then(() => onDeleteCity(city))
+}
+
+function handleDeleteActivity() {
+    fetch(`http://localhost:9292/activities/${activity.id}`, {
+        method: 'DELETE',
+    })
+    .then(res => res.json())
+    .then(() => onDeleteActivity(activity))
+}
+
+function handleEditActivity(){
+    console.log("edited")
+}
+
+
     return (
-        <div>
+        <div className='wrapper'>
             <button>
-                <p>City <br></br>{name}</p>
+                <p>City <br></br>{name} : {city.id}</p>
+                <button onClick={handleDeleteCity}>🗑️ </button>
             </button>
-            <ul>{mapActivities}</ul>
+
+            <button>
+                <p>Activities</p>
+                <ul >{mapActivities}</ul>
+                <button onClick={handleEditActivity}>Edit </button>
+                <button onClick={handleDeleteActivity}>🗑️ </button>
+            </button>
         </div>
     )
 }
