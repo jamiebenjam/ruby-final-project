@@ -37,7 +37,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cities" element={<City cities={cities} activities={activities} onAddCity={onAddCity} />} />
+        <Route path="/cities" element={<City setCities={setCities} cities={cities} activities={activities} onAddCity={onAddCity} />} />
 
 
         {/* <Route exact path="/activities"/>

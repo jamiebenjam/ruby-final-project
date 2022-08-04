@@ -11,7 +11,7 @@ function NewCityForm({onAddCity}) {
     function handleFormChange(e) {
         console.log(e.target.value);
         setCityForm((prevState) => {
-            let key = e.target.value.name
+            let key = e.target.name
             return {
                 ...prevState,
                 [key]: e.target.value
@@ -21,19 +21,19 @@ function NewCityForm({onAddCity}) {
 
     function handleCityClick(e) {
         e.preventDefault()
+        console.log(cityForm)
         const configObj = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",    
             },
-            body: JSON.stringify({...cityForm}),
+            body: JSON.stringify(cityForm),
         };
 
         fetch("http://localhost:9292/cities", configObj)
         .then(res => res.json())
-        .then(data => {
-            onAddCity(data);
+        .then(data => {onAddCity(data);
             setCityForm({
                 name: ""
             })
