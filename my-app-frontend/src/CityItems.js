@@ -1,7 +1,7 @@
 import React from 'react';
 import ActivityItems from './ActivityItems';
 
-function CityItems({name, activities}) {
+function CityItems({name, id, activities}) {
 
 
 const mapActivities = activities.map((activity) => {
@@ -17,7 +17,7 @@ const mapActivities = activities.map((activity) => {
     return (
         <div>
             <button>
-                <p>City <br></br>{name}</p>
+                <p>City <br></br>{name} : {id}</p>
             </button>
             <ul>{mapActivities}</ul>
         </div>

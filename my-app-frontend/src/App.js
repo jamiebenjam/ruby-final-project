@@ -14,6 +14,10 @@ function App() {
     setCities((prevCities) => [...prevCities, newCity])
   })
 
+  const onAddActivity = ((newActivity) => {
+    setActivities((prevActivites) => [...prevActivites, newActivity])
+  })
+
   function fetchCities() {
     fetch("http://localhost:9292/cities")
     .then(response => response.json())
@@ -37,7 +41,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cities" element={<City setCities={setCities} cities={cities} activities={activities} onAddCity={onAddCity} />} />
+        <Route path="/cities" element={<City setCities={setCities} cities={cities} activities={activities} onAddCity={onAddCity} onAddActivity={onAddActivity} />} />
 
 
         {/* <Route exact path="/activities"/>
