@@ -2,9 +2,7 @@ import React from 'react';
 // import { act } from 'react-dom/test-utils';
 import ActivityItem from './ActivityItem';
 
-function CityItem({ name, activities, onDeleteCity, city}) {
-
-    // const [active, setActive] = useState(true)
+function CityItem({ name, activities, onDeleteCity, city, fetchArchives, fetchActivities}) {
 
 
 const mapActivities = activities.map((activity) => {
@@ -16,6 +14,8 @@ const mapActivities = activities.map((activity) => {
     park={activity.park}
     misc={activity.misc}
     activity={activity}
+    fetchArchives={fetchArchives}
+    fetchActivities={fetchActivities}
     />
 })
 
@@ -27,23 +27,6 @@ function handleDeleteCity() {
     .then((data) => onDeleteCity(data))
 }
 
-// function handleArchive(){
-//     console.log("archived")
-//     const updateActivity = activities.map((activity) => {
-//         if (activity.active === true) {
-//             return {...activity, active: false}
-//         } else {
-//             return activity
-//         }
-//     })
-//     setArchive(updateActivity)
-// }
-
-
-// function archiveActivity(newActivity) {
-//     setArchive([...archive, newActivity])
-//     setActivities(activities.filter(activity => activity.id !== newActivity.id))
-// }
 
 
     return (

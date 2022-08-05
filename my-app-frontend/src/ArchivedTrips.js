@@ -1,37 +1,26 @@
-import React, { useState, useEffect} from "react";
-import ArchivedItem from "./ArchivedItem";
+import React from "react";
+import ActivityItem from "./ActivityItem";
 
-function ArchivedTrips({fetchArchives, setArchives, archives}) {
-    console.log(archives)
-
-    // const [archives, setArchives] = useState([])
-
-    function fetchArchives() {
-        fetch("http://localhost:9292/archive")
-        .then(response => response.json())
-        .then(archiveData => setArchives(archiveData))
-    }
-    
-    useEffect(fetchArchives, []);
-
-    // FetchingArchives = () => {};
+function ArchivedTrips({archives, fetchActivities, fetchArchives}) {
 
     const mapArchives = archives.map((archive) => {
-        return <ArchivedItem
-        key={archive.id}
-        id={archive.id}
-        museum={archive.museum}
-        restaurant={archive.restaurant}
-        park={archive.park}
-        misc={archive.misc}
-
+        return <ActivityItem
+            key={archive.id}
+            id={archive.id}
+            museum={archive.museum}
+            restaurant={archive.restaurant}
+            park={archive.park}
+            misc={archive.misc}
+            activity={archive}
+            fetchArchives={fetchArchives}
+            fetchActivities={fetchActivities}
         />
 })
 
 
     return (
         <div>
-        <ul>{mapArchives}</ul>
+            <ul>{mapArchives}</ul>
         </div>
     )
 }

@@ -1,24 +1,22 @@
 
-function ActivityItems({ fetchArchives, museum, restaurant, park, misc, id, activity, fetchActivities}) {
+function ActivityItem({ fetchArchives, museum, restaurant, park, misc, id, activity, fetchActivities}) {
 
+    console.log(activity)
 
-    function handleAddtoArchive() {
-        console.log("1")
+    function handleToggleArchive() {
         fetch(`http://localhost:9292/activities/${activity.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                active: false
+                active: !activity.active
             }),
         })
-        .then((res) => {
-            console.log("2")
-            res.json()})
+        .then((res) => res.json())
         .then(() => {
-            fetchActivities()
             fetchArchives()
+            fetchActivities()
         })
     }
 
@@ -29,11 +27,11 @@ function ActivityItems({ fetchArchives, museum, restaurant, park, misc, id, acti
                 <p>Restaurant: {restaurant}</p>
                 <p>Park: {park}</p>
                 <p>Misc: {misc}</p>
-                <button onClick={handleAddtoArchive}>Archive</button>
+                <button onClick={handleToggleArchive}>{activity.active ? 'Archive' : 'Unarchive'}</button>
             </button>
         </div>
 
     )
 }
 
-export default ActivityItems;
+export default ActivityItem;

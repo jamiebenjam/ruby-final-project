@@ -1,29 +1,19 @@
 import React, {useEffect, useState} from "react";
 import CityItem from "./CityItem";
 import NewCityForm from "./NewCityForm";
-import ArchivedTrips from "./ArchivedTrips";
 
-function City() {
+function City({fetchArchives, fetchActivities, activities, setActivities}) {
     
-    const [cities, setCities] = useState([])
-    const [activities, setActivities] = useState([])
+  const [cities, setCities] = useState([])
 
-  //FETCH
-function fetchCities() {
+  function fetchCities() {
     fetch("http://localhost:9292/cities")
     .then(response => response.json())
     .then(cityData => setCities(cityData))
-}
+  }
+  
+  useEffect(fetchCities, []);
 
-useEffect(fetchCities, []);
-
-function fetchActivities() {
-    fetch("http://localhost:9292/activities")
-    .then(response => response.json())
-    .then(activityData => setActivities(activityData))
-}
-
-useEffect(fetchActivities, []);
     const mapCities = cities.map((city) => {
         return <CityItem
         key={city.id}
@@ -33,6 +23,8 @@ useEffect(fetchActivities, []);
         onDeleteCity={onDeleteCity}
         city={city}
         onDeleteActivity={onDeleteActivity}
+        fetchArchives={fetchArchives} 
+        fetchActivities={fetchActivities}
         />
     })
  
@@ -61,18 +53,11 @@ useEffect(fetchActivities, []);
         return activities.filter((activity) => activity.city_id === city.id)
     }
 
-    const mapActivities = activities.map((activity) => {
-        return <ArchivedTrips
-        activities={activities}
-        />
-})
-
 
     return (
         <div className="cityDiv">
             <NewCityForm cities={cities} onAddCity={onAddCity} setCities={setCities} onAddActivity={onAddActivity} />
             <ul>{mapCities}</ul>
-            <h2>Past Trips</h2>
         </div>
     )
 }

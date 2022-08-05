@@ -4,20 +4,27 @@ import Home from './Home';
 import { Route, Routes } from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 import City from './City';
-import { act } from 'react-dom/test-utils';
 import ArchivedTrips from './ArchivedTrips';
 
 function App() {
 
   const [archives, setArchives] = useState([])
+  const [activities, setActivities] = useState([])
+
+//FETCH
+
+function fetchActivities() {
+  fetch("http://localhost:9292/activities")
+  .then(response => response.json())
+  .then(activityData => setActivities(activityData))
+}
+
+useEffect(fetchActivities, []);
 
 function fetchArchives() {
-  console.log("4")
   fetch("http://localhost:9292/archive")
-  .then(response => {response.json()
-  console.log("5")})
-  .then(archiveData => {setArchives(archiveData)
-  console.log(`app.js ${archiveData}`)})
+  .then(response => response.json())
+  .then(archiveData => setArchives(archiveData))
 }
 
 useEffect(fetchArchives, [])
@@ -29,8 +36,8 @@ useEffect(fetchArchives, [])
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/trips" element={<City setArchives={setArchives} fetchArchives={fetchArchives}/>} />
-        <Route path="/archive" element={<ArchivedTrips archives={archives} setArchives={setArchives} fetchArchives={fetchArchives} />} />
+        <Route path="/trips" element={<City fetchArchives={fetchArchives} setActivities={setActivities} fetchActivities={fetchActivities} activities={activities} />} />
+        <Route path="/archive" element={<ArchivedTrips fetchArchives={fetchArchives} fetchActivities={fetchActivities} archives={archives} />} />
       </Routes>
     </div>
   );
