@@ -1,21 +1,20 @@
 import React from 'react';
-// import { act } from 'react-dom/test-utils';
 import ActivityItem from './ActivityItem';
 
-function CityItem({ name, activities, onDeleteCity, city, fetchArchives, fetchActivities}) {
+function CityItem({name, activities, onDeleteCity, city, fetchArchives, fetchActivities}) {
 
 
 const mapActivities = activities.map((activity) => {
     return <ActivityItem
-    key={activity.id}
-    id={activity.id}
-    museum={activity.museum}
-    restaurant={activity.restaurant}
-    park={activity.park}
-    misc={activity.misc}
-    activity={activity}
-    fetchArchives={fetchArchives}
-    fetchActivities={fetchActivities}
+        key={activity.id}
+        id={activity.id}
+        museum={activity.museum}
+        restaurant={activity.restaurant}
+        park={activity.park}
+        misc={activity.misc}
+        activity={activity}
+        fetchArchives={fetchArchives}
+        fetchActivities={fetchActivities}
     />
 })
 
@@ -32,14 +31,13 @@ function handleDeleteCity() {
     return (
         <div className='wrapper'>
             <button>
-                <p>City <br></br>{name} : {city.id}</p>
+                <p>{name}</p>
                 <button onClick={handleDeleteCity}>🗑️ </button>
             </button>
 
             <button>
                 <p>Activities</p>
                 <ul >{mapActivities}</ul>
-
             </button>
         </div>
     )

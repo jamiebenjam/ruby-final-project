@@ -1,7 +1,5 @@
 
-function ActivityItem({ fetchArchives, museum, restaurant, park, misc, id, activity, fetchActivities}) {
-
-    console.log(activity)
+function ActivityItem({ fetchArchives, museum, restaurant, park, misc, activity, fetchActivities}) {
 
     function handleToggleArchive() {
         fetch(`http://localhost:9292/activities/${activity.id}`, {
