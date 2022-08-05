@@ -1,5 +1,5 @@
 
-function ActivityItem({ fetchArchives, museum, restaurant, park, misc, id, activity, fetchActivities}) {
+function ActivityItem({ fetchArchives, museum, restaurant, park, misc, activity, fetchActivities}) {
 
     console.log(activity)
 

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { act } from 'react-dom/test-utils';
 import ActivityItem from './ActivityItem';
 
 function CityItem({ name, activities, onDeleteCity, city, fetchArchives, fetchActivities}) {
@@ -38,8 +37,7 @@ function handleDeleteCity() {
 
             <button>
                 <p>Activities</p>
-                <ul >{mapActivities}</ul>
-
+                <ul>{mapActivities}</ul>
             </button>
         </div>
     )
