@@ -4,45 +4,30 @@ import Home from './Home';
 import { Route, Routes } from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 import City from './City';
+import ArchivedTrips from './ArchivedTrips';
 
 function App() {
 
-  const [cities, setCities] = useState([])
+  const [archives, setArchives] = useState([])
   const [activities, setActivities] = useState([])
 
-  const onAddCity = ((newCity) => {
-    setCities((prevCities) => [...prevCities, newCity])
-  })
+//FETCH
 
-  const onAddActivity = ((newActivity) => {
-    setActivities((prevActivites) => [...prevActivites, newActivity])
-  })
+function fetchActivities() {
+  fetch("http://localhost:9292/activities")
+  .then(response => response.json())
+  .then(activityData => setActivities(activityData))
+}
 
-  function fetchCities() {
-    fetch("http://localhost:9292/cities")
-    .then(response => response.json())
-    .then(cityData => setCities(cityData))
-  }
-  
-  useEffect(fetchCities, []);
+useEffect(fetchActivities, []);
 
-  function fetchActivities() {
-    fetch("http://localhost:9292/activities")
-    .then(response => response.json())
-    .then(activityData => setActivities(activityData))
-  }
+function fetchArchives() {
+  fetch("http://localhost:9292/archive")
+  .then(response => response.json())
+  .then(archiveData => setArchives(archiveData))
+}
 
-  useEffect(fetchActivities, []);
-
-  function onDeleteCity(deletedCity) {
-    const updatedCities = cities.filter((city) => city.id !== deletedCity.id);
-    setCities(updatedCities);
-  }
-
-  function onDeleteActivity(deletedActivity) {
-    const updatedActivities = activities.filter((activity) => activity.id !== deletedActivity.id);
-    setActivities(updatedActivities);
-  }
+useEffect(fetchArchives, [])
 
 
   return (
@@ -51,7 +36,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cities" element={<City onDeleteActivity={onDeleteActivity} setCities={setCities} cities={cities} activities={activities} onAddCity={onAddCity} onAddActivity={onAddActivity} onDeleteCity={onDeleteCity} />} />
+        <Route path="/trips" element={<City fetchArchives={fetchArchives} setActivities={setActivities} fetchActivities={fetchActivities} activities={activities} />} />
+        <Route path="/archive" element={<ArchivedTrips fetchArchives={fetchArchives} fetchActivities={fetchActivities} archives={archives} />} />
       </Routes>
     </div>
   );
