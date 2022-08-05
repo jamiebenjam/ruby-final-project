@@ -1,12 +1,14 @@
 import React from 'react';
 // import { act } from 'react-dom/test-utils';
-import ActivityItems from './ActivityItems';
+import ActivityItem from './ActivityItem';
 
-function CityItems({name, activities, onDeleteCity, city}) {
+function CityItem({ name, activities, onDeleteCity, city}) {
+
+    // const [active, setActive] = useState(true)
 
 
 const mapActivities = activities.map((activity) => {
-    return <ActivityItems
+    return <ActivityItem
     key={activity.id}
     id={activity.id}
     museum={activity.museum}
@@ -25,9 +27,23 @@ function handleDeleteCity() {
     .then((data) => onDeleteCity(data))
 }
 
-function handleEditActivity(){
-    console.log("edited")
-}
+// function handleArchive(){
+//     console.log("archived")
+//     const updateActivity = activities.map((activity) => {
+//         if (activity.active === true) {
+//             return {...activity, active: false}
+//         } else {
+//             return activity
+//         }
+//     })
+//     setArchive(updateActivity)
+// }
+
+
+// function archiveActivity(newActivity) {
+//     setArchive([...archive, newActivity])
+//     setActivities(activities.filter(activity => activity.id !== newActivity.id))
+// }
 
 
     return (
@@ -40,10 +56,10 @@ function handleEditActivity(){
             <button>
                 <p>Activities</p>
                 <ul >{mapActivities}</ul>
-                <button onClick={handleEditActivity}>Archive</button>
+
             </button>
         </div>
     )
 }
 
-export default CityItems;
+export default CityItem;
